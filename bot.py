@@ -275,7 +275,7 @@ async def broadcast_(c, m):
 @Bot.on_message(filters.private & filters.command("stats") & filters.user(BOT_OWNER))
 async def sts(c, m):
 	total_users = await db.total_users_count()
-	await m.reply_text(text=f"**Total Users in DB:** `{total_users}`", parse_mode="Markdown", quote=True)
+	await m.reply_text(text=f"**Total Users:** `{total_users}`", parse_mode="Markdown", quote=True)
 
 @Bot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
