@@ -99,18 +99,7 @@ async def start(bot, cmd):
 			HOME_TEXT.format(cmd.from_user.first_name, cmd.from_user.id),
 			parse_mode="Markdown",
 			disable_web_page_preview=True,
-			reply_markup=InlineKeyboardMarkup(
-				[
-					[
-						InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-						InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
-					],
-					[
-						InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-						InlineKeyboardButton("About Dev", callback_data="aboutdevs")
-					]
-				]
-			)
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('⚙ Channel ⚙', url='https://telegram.me/FayasNoushad'), InlineKeyboardButton('⚙ Group ⚙', url='https://telegram.me/FayasChat')]])
 		)
 	else:
 		if Config.UPDATES_CHANNEL:
@@ -280,57 +269,12 @@ async def sts(c, m):
 @Bot.on_callback_query()
 async def button(bot, cmd: CallbackQuery):
 	cb_data = cmd.data
-	if "aboutbot" in cb_data:
-		await cmd.message.edit(
-			ABOUT_BOT_TEXT,
-			parse_mode="Markdown",
-			disable_web_page_preview=True,
-			reply_markup=InlineKeyboardMarkup(
-				[
-					[
-						InlineKeyboardButton("Source Codes of Bot", url="https://github.com/AbirHasan2005/PyroFilesStoreBot")
-					],
-					[
-						InlineKeyboardButton("Go Home", callback_data="gotohome"),
-						InlineKeyboardButton("About Dev", callback_data="aboutdevs")
-					]
-				]
-			)
-		)
-	elif "aboutdevs" in cb_data:
-		await cmd.message.edit(
-			ABOUT_DEV_TEXT,
-			parse_mode="Markdown",
-			disable_web_page_preview=True,
-			reply_markup=InlineKeyboardMarkup(
-				[
-					[
-						InlineKeyboardButton("Source Codes of Bot", url="https://github.com/AbirHasan2005/PyroFilesStoreBot")
-					],
-					[
-						InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-						InlineKeyboardButton("Go Home", callback_data="gotohome")
-					]
-				]
-			)
-		)
-	elif "gotohome" in cb_data:
+	if "gotohome" in cb_data:
 		await cmd.message.edit(
 			HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
 			parse_mode="Markdown",
 			disable_web_page_preview=True,
-			reply_markup=InlineKeyboardMarkup(
-				[
-					[
-						InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-						InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
-					],
-					[
-						InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-						InlineKeyboardButton("About Dev", callback_data="aboutdevs")
-					]
-				]
-			)
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('⚙ Channel ⚙', url='https://telegram.me/FayasNoushad'), InlineKeyboardButton('⚙ Group ⚙', url='https://telegram.me/FayasChat')]])
 		)
 	elif "refreshmeh" in cb_data:
 		if Config.UPDATES_CHANNEL:
@@ -371,18 +315,7 @@ async def button(bot, cmd: CallbackQuery):
 			text=HOME_TEXT.format(cmd.message.chat.first_name, cmd.message.chat.id),
 			parse_mode="Markdown",
 			disable_web_page_preview=True,
-			reply_markup=InlineKeyboardMarkup(
-				[
-					[
-						InlineKeyboardButton("Support Group", url="https://t.me/linux_repo"),
-						InlineKeyboardButton("Bots Channel", url="https://t.me/Discovery_Updates")
-					],
-					[
-						InlineKeyboardButton("About Bot", callback_data="aboutbot"),
-						InlineKeyboardButton("About Dev", callback_data="aboutdevs")
-					]
-				]
-			)
+			reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton('⚙ Channel ⚙', url='https://telegram.me/FayasNoushad'), InlineKeyboardButton('⚙ Group ⚙', url='https://telegram.me/FayasChat')]])
 		)
 
 Bot.run()
