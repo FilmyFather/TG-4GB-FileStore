@@ -252,12 +252,13 @@ async def broadcast_(c, m):
 	        quote=True
 	    )
 	else:
-	    await m.reply_document(
+	    await m.reply_text(
+		chat_id=BOT_OWNER,
 	        document='broadcast.txt',
 	        caption=f"broadcast completed in `{completed_in}`\n\nTotal users {total_users}.\nTotal done {done}, {success} success and {failed} failed.",
 	        quote=True
 	    )
-	await os.remove('broadcast.txt')
+	os.remove('broadcast.txt')
 
 @Bot.on_message(filters.private & filters.command("stats") & filters.user(BOT_OWNER))
 async def sts(c, m):
